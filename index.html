@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="tr" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff7f2">
+  <title>Samaa Öğretmenime Özür ve Teşekkür Mektubu</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #59414c;
+      --muted: #9c7d88;
+      --pink: #e98ca8;
+      --pink-dark: #cb6687;
+      --paper: #fffdfa;
+      --line: #f5e6e8;
+      --lavender: #eee8ff;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      padding: 34px 20px;
+      display: grid;
+      place-items: center;
+      overflow-x: hidden;
+      color: var(--ink);
+      background:
+        radial-gradient(ellipse at 12% 14%, #ffe1e7 0, transparent 26%),
+        radial-gradient(ellipse at 88% 82%, #e9e2ff 0, transparent 27%),
+        #fff7f2;
+      font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+    }
+
+    button, input { font: inherit; }
+    button { -webkit-tap-highlight-color: transparent; }
+
+    .page {
+      width: min(100%, 940px);
+      position: relative;
+    }
+
+    .topline {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 19px;
+      color: var(--pink-dark);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .02em;
+    }
+
+    .topline span:first-child { font-size: 17px; }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, .88fr) minmax(0, 1.12fr);
+      align-items: center;
+      gap: clamp(24px, 5vw, 58px);
+    }
+
+    .intro { padding: 8px 0; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 13px;
+      border: 1px solid #f4dce4;
+      border-radius: 999px;
+      background: #fffafc;
+      color: #b66c86;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    h1 {
+      max-width: 420px;
+      margin: 18px 0 12px;
+      font-size: clamp(34px, 5vw, 52px);
+      line-height: 1.28;
+      letter-spacing: -.04em;
+    }
+
+    h1 em {
+      color: var(--pink-dark);
+      font-style: normal;
+      white-space: nowrap;
+    }
+
+    .intro-copy {
+      max-width: 370px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.95;
+    }
+
+    .love-note {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      max-width: 360px;
+      margin-top: 27px;
+      padding: 14px 16px;
+      border: 1px solid #eee6fa;
+      border-radius: 17px;
+      background: rgb(255 255 255 / 62%);
+      color: #796a91;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .love-note .sparkle { font-size: 21px; }
+
+    .letter-wrap {
+      position: relative;
+      padding: 17px;
+      border: 1px solid #f5e4e6;
+      border-radius: 28px;
+      background: rgb(255 255 255 / 48%);
+      box-shadow: 0 22px 65px rgb(124 82 100 / 10%);
+    }
+
+    .letter {
+      min-height: 485px;
+      padding: clamp(24px, 4vw, 39px);
+      border: 1px solid #f4ebdf;
+      border-radius: 19px;
+      background:
+        repeating-linear-gradient(transparent 0 35px, #f8f1eb 35px 36px),
+        var(--paper);
+      box-shadow: 0 3px 12px rgb(112 84 78 / 5%);
+      transition: transform .45s ease, opacity .35s ease;
+    }
+
+    .letter.closed {
+      opacity: .14;
+      transform: translateY(8px) scale(.98);
+      pointer-events: none;
+    }
+
+    .letter-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 19px;
+    }
+
+    .letter-tag {
+      color: #c18896;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .08em;
+    }
+
+    .tiny-heart {
+      display: grid;
+      width: 33px;
+      height: 33px;
+      place-items: center;
+      border-radius: 50%;
+      background: #fff0f3;
+      color: var(--pink-dark);
+    }
+
+    .greeting {
+      margin: 0 0 13px;
+      color: #a8647e;
+      font-size: 19px;
+      font-weight: 700;
+    }
+
+    .letter-copy {
+      margin: 0;
+      color: #715762;
+      font-size: 14px;
+      line-height: 2.15;
+    }
+
+    .letter-copy p { margin: 0 0 11px; }
+
+    .signature {
+      margin-top: 18px;
+      color: #aa6980;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .signature .heart { font-size: 19px; }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 25px;
+    }
+
+    .btn {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 0 17px;
+      border: 0;
+      border-radius: 13px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 700;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+    .btn:focus-visible, .name-input:focus-visible {
+      outline: 3px solid #efb4c6;
+      outline-offset: 3px;
+    }
+
+    .btn-primary {
+      color: white;
+      background: linear-gradient(135deg, #ed9ab2, #dc7f9d);
+      box-shadow: 0 7px 17px rgb(213 119 150 / 23%);
+    }
+
+    .btn-primary:hover { box-shadow: 0 10px 20px rgb(213 119 150 / 30%); }
+
+    .btn-soft {
+      border: 1px solid #f0e5e9;
+      color: #987987;
+      background: #fff;
+    }
+
+    .name-input {
+      width: 155px;
+      min-height: 44px;
+      padding: 0 12px;
+      border: 1px solid #f0e1e6;
+      border-radius: 13px;
+      background: #fff;
+      color: var(--ink);
+      font-size: 13px;
+    }
+
+    .name-input::placeholder { color: #bdabb2; }
+
+    .hint {
+      min-height: 20px;
+      margin: 11px 2px 0;
+      color: #a8798b;
+      font-size: 12px;
+    }
+
+    .stamp {
+      position: absolute;
+      z-index: 1;
+      top: 50%;
+      right: 50%;
+      display: grid;
+      width: 76px;
+      height: 76px;
+      place-items: center;
+      border: 5px solid #fff9f8;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #f4a8ba, #e98ca8);
+      box-shadow: 0 7px 18px rgb(169 83 112 / 25%);
+      color: white;
+      font-size: 30px;
+      cursor: pointer;
+      transform: translate(50%, -50%);
+      transition: opacity .25s ease, transform .25s ease;
+    }
+
+    .stamp:hover { transform: translate(50%, -50%) scale(1.07) rotate(-7deg); }
+    .stamp.hidden { opacity: 0; pointer-events: none; transform: translate(50%, -50%) scale(.6); }
+
+    .floating {
+      position: absolute;
+      z-index: -1;
+      color: #e9a1b5;
+      opacity: .66;
+      user-select: none;
+    }
+
+    .float-one { top: 6%; right: 2%; font-size: 24px; transform: rotate(12deg); }
+    .float-two { bottom: 3%; left: 47%; font-size: 19px; transform: rotate(-13deg); }
+
+    @media (max-width: 700px) {
+      body { padding: 24px 16px 32px; }
+      .layout { grid-template-columns: 1fr; gap: 23px; }
+      .intro { text-align: center; }
+      h1, .intro-copy, .love-note { margin-right: auto; margin-left: auto; }
+      h1 { margin-top: 13px; font-size: clamp(34px, 9vw, 46px); }
+      .intro-copy { font-size: 14px; }
+      .love-note { justify-content: center; text-align: right; margin-top: 17px; }
+      .letter-wrap { padding: 11px; border-radius: 23px; }
+      .letter { min-height: auto; padding: 24px 20px; }
+      .letter-copy { font-size: 13px; line-height: 2.05; }
+      .stamp { width: 66px; height: 66px; font-size: 26px; }
+      .actions { justify-content: center; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <span class="floating float-one" aria-hidden="true">✦</span>
+    <span class="floating float-two" aria-hidden="true">♡</span>
+    <div class="topline"><span aria-hidden="true">♡</span> Öğretmenime kalpten bir mektup</div>
+
+    <div class="layout">
+      <section class="intro" aria-labelledby="page-title">
+        <div class="eyebrow"><span aria-hidden="true">✿</span> İçten bir özür ve teşekkür</div>
+        <h1 id="page-title">Sevgili <em>öğretmenime</em></h1>
+        <p class="intro-copy">
+          Bazen içimizdekileri söylemek kolay olmaz. Bu mektup, öğretmenine özür dilemek ve ona ne kadar değer verdiğini anlatmak için.
+        </p>
+        <div class="love-note">
+          <span class="sparkle" aria-hidden="true">✨</span>
+          <span>Bir öğretmenin emeği, öğrettiklerinden çok daha fazlasıdır. Güzel sözlerin ve içten bir özrün değerini asla küçümseme.</span>
+        </div>
+      </section>
+
+      <section class="letter-wrap" aria-label="Samaa öğretmene yazılmış özür ve teşekkür mektubu">
+        <article class="letter closed" id="letter" aria-live="polite">
+          <div class="letter-head">
+            <span class="letter-tag">Size sevgilerimle, öğretmenim ♡</span>
+            <span class="tiny-heart" aria-hidden="true">♡</span>
+          </div>
+          <h2 class="greeting" id="greeting">Değerli Samaa Öğretmenim,</h2>
+          <div class="letter-copy">
+            <p>Size karşı yanlış davrandıysam ya da sizi üzdüysem, bunun için içtenlikle özür dilerim. Yaptığımın sorumluluğunu alıyorum ve sizi kırmak istemediğimi bilmenizi istiyorum.</p>
+            <p>Bana gösterdiğiniz sabır, emek ve anlayış için çok teşekkür ederim. Bize yalnızca dersleri değil, kendimize inanmayı ve daha iyisini yapmaya çalışmayı da öğretiyorsunuz.</p>
+            <p>Sınıfa kattığınız güzellik ve öğrencileriniz için verdiğiniz emek benim için çok değerli. Bazen bunu yeterince söyleyememiş olabilirim ama size gerçekten minnettarım.</p>
+            <p>Hatalarımdan ders çıkarıp bundan sonra daha dikkatli ve saygılı davranmaya çalışacağım. Umarım özrümü kabul edersiniz.</p>
+          </div>
+          <div class="signature">İyi ki öğretmenimsiniz. Emekleriniz ve güzel kalbiniz için teşekkür ederim <span class="heart" aria-hidden="true">♥</span></div>
+        </article>
+        <button class="stamp" id="open-letter" type="button" aria-label="Mektubu aç">♡</button>
+      </section>
+    </div>
+
+    <div class="actions" aria-label="Mektup seçenekleri">
+      <input class="name-input" id="name-input" type="text" maxlength="24" value="Samaa" placeholder="Öğretmeninin adı" aria-label="Öğretmeninin adı">
+      <button class="btn btn-primary" id="personalize" type="button">✦ Öğretmenime özel yap</button>
+      <button class="btn btn-soft" id="copy-letter" type="button">♡ Mektubu kopyala</button>
+    </div>
+    <p class="hint" id="hint" role="status" aria-live="polite"></p>
+  </main>
+
+  <script>
+    const letter = document.querySelector("#letter");
+    const seal = document.querySelector("#open-letter");
+    const nameInput = document.querySelector("#name-input");
+    const greeting = document.querySelector("#greeting");
+    const hint = document.querySelector("#hint");
+
+    seal.addEventListener("click", () => {
+      letter.classList.remove("closed");
+      seal.classList.add("hidden");
+      hint.textContent = "Mektubunu öğretmenine içtenlikle verebilirsin ♡";
+    });
+
+    document.querySelector("#personalize").addEventListener("click", () => {
+      const name = nameInput.value.trim();
+      greeting.textContent = name ? `Değerli ${name} Öğretmenim,` : "Değerli Öğretmenim,";
+      if (letter.classList.contains("closed")) {
+        letter.classList.remove("closed");
+        seal.classList.add("hidden");
+      }
+      hint.textContent = name ? `Bu mektup ${name} Öğretmeniniz için hazır ♡` : "Öğretmeninin adını dilediğin zaman ekleyebilirsin ♡";
+    });
+
+    document.querySelector("#copy-letter").addEventListener("click", async () => {
+      const text = `${greeting.textContent}\n\n${[...document.querySelectorAll(".letter-copy p")].map(p => p.textContent).join("\n\n")}\n\n${document.querySelector(".signature").textContent}`;
+      try {
+        await navigator.clipboard.writeText(text);
+        hint.textContent = "Mektup kopyalandı — öğretmenine iletebilirsin ♡";
+      } catch {
+        hint.textContent = "Tarayıcı burada kopyalamaya izin vermedi. Sayfayı güvenli bir tarayıcıda açmayı dene.";
+      }
+    });
+  </script>
+</body>
+</html>
